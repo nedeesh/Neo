@@ -22,13 +22,14 @@
     <title>Document</title>
 </head>
 <body>
+    <form method="GET">
 <table class="table">
     <tr>
         <td>
             name
         </td>
         <td>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="getName">
         </td>
     </tr>
     <tr>
@@ -36,7 +37,7 @@
             roll number
         </td>
         <td>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="getRoll">
         </td>
     </tr>
     <tr>
@@ -44,7 +45,7 @@
             college
         </td>
         <td>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="getCollege">
         </td>
     </tr>
     <tr>
@@ -52,16 +53,30 @@
             Admission no.
         </td>
         <td>
-            <input type="text" name="" id="" class="form-control">
+            <input type="text" class="form-control" name="getAdmno">
         </td>
     </tr>
     <tr>
         <td></td>
         <td>
-            <button class="btn btn-danger">submit</button>
+            <button class="btn btn-danger" type="Submit" name="getSubmit">submit</button>
         </td>
     </tr>
-</table>    
+</table>   
+</form> 
 
 </body>
 </html>
+<?php
+if(isset($_GET["getSubmit"]))
+{
+    $name=$_GET["getName"];
+    $roll=$_GET["getRoll"];
+    $college=$_GET["getCollege"];
+    $admno=$_GET["getAdmno"];
+    echo $name;
+    echo $roll;
+    echo $college;
+    echo $admno;
+}
+?>
