@@ -4,13 +4,13 @@
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">Student Entry</a>
+          <a class="nav-link" href="index.php">Student Entry</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="search.html">Search</a>
+          <a class="nav-link" href="search.php">Search</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="edit.html">Edit</a>
+          <a class="nav-link" href="edit.php">Edit</a>
         </li>
     
       </ul>
@@ -74,9 +74,20 @@ if(isset($_GET["getSubmit"]))
     $roll=$_GET["getRoll"];
     $college=$_GET["getCollege"];
     $admno=$_GET["getAdmno"];
-    echo $name;
-    echo $roll;
-    echo $college;
-    echo $admno;
+    $ServerName="localhost";
+    $DbUserName="root";
+    $DbPassword="";
+    $DBName="mydb";
+    $connection=new mysqli($ServerName,$DbUserName,$DbPassword,$DBName);
+    $sql="INSERT INTO `student`( `name`, `rollno`, `admissiono`, `college`) VALUES ('$name',$roll,$admno,'$college')";
+    $result=$connection->query($sql);
+    if($result===TRUE)
+    {
+        echo"successfull";
+    }
+    else
+    {
+        echo $connection->error;
+    }
 }
 ?>
